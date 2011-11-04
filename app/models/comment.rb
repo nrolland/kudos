@@ -1,7 +1,8 @@
 class Comment < ActiveRecord::Base
-  COMMENT_VALUE = [-1, 0, 1]
+  COMMENT_VALUE = -1..1
   
-  belongs_to :user, :kudo
+  belongs_to :user
+  belongs_to :kudo
   
   validates :value, :inclusion => { :in => COMMENT_VALUE }
 end

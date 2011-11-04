@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
   ROLES = [:admin, :user]
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  has_many :comments, :kudos
+  has_many :comments
+  has_many :kudos
   
   has_secure_password
   
@@ -11,7 +12,7 @@ class User < ActiveRecord::Base
                     :presence => true,
                     :uniqueness => { :case_sensitive => false}
   validates :password, :presence => true
-  validates :role, :presence => true
+  validates :role, :presence => true,
                    :inclusion =>  {:in => ROLES}
   
 end

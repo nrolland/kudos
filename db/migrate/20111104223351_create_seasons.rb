@@ -3,8 +3,8 @@ class CreateSeasons < ActiveRecord::Migration
     create_table :seasons do |t|
       t.date :start_date
       t.date :end_date
-      t.int :starting_kudos
-      t.int :max_kudos_per_user
+      t.integer :starting_kudos
+      t.integer :max_kudos_per_user
 
       t.timestamps
     end

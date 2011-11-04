@@ -13,7 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20111104225250) do
 
-
   create_table "comments", :force => true do |t|
     t.string   "text"
     t.integer  "value"
@@ -21,24 +20,15 @@ ActiveRecord::Schema.define(:version => 20111104225250) do
     t.datetime "updated_at"
   end
 
-  create_table "kudos", :force => true do |t|
-    t.string   "message"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "users", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.string   "role"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "groups", :force => true do |t|
     t.string   "name"
     t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "kudos", :force => true do |t|
+    t.string   "message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -56,6 +46,15 @@ ActiveRecord::Schema.define(:version => 20111104225250) do
     t.date     "end_date"
     t.integer  "starting_kudos"
     t.integer  "max_kudos_per_user"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "role"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

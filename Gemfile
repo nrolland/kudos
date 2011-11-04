@@ -19,7 +19,6 @@ end
 group :test do
   gem 'capybara'
   gem 'factory_girl_rails'
-  gem 'growl_notify'
   gem 'guard-rspec'
   gem 'turn', '< 0.8.3'
   gem 'webrat'

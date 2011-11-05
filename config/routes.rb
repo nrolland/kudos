@@ -1,12 +1,12 @@
 Kudos::Application.routes.draw do
- resources :sessions, :only => [:new, :create, :destroy]
-
+  resources :sessions, :only => [:new, :create, :destroy]
+  resources :users, :only => [:new, :create]
+  
   get "sessions/new"
  
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
-  
-  resources :users  
+  match '/signup',  :to => 'users#new'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -9,6 +9,7 @@ class Season < ActiveRecord::Base
   belongs_to :group
   has_many :kudos
   has_many :prizes
+  has_many :timelines, :as => :event
 
   def season_cannot_start_before_it_ends
     if not start_date.nil? and not end_date.nil?

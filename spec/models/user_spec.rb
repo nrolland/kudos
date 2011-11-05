@@ -3,7 +3,7 @@ require 'spec_helper'
 describe User do
   
   before(:each) do
-    @attr = { :name => "Example User", :email => "email@viavansi.com", :password => "loren", :role => :admin}
+    @attr = { :name => "Example User", :email => "email@viavansi.com", :password => "loren", :role => "admin"}
   end
   
   it "should not save user without all required fields filled" do 

@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Season do
   before :each do
+    @group = Factory(:group)
     @season = Factory(:season)
   end
 

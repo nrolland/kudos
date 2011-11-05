@@ -9,7 +9,9 @@
 
 
 (1..2).each do |i|
-  group= Group.create( :name => "Group #{i}", :description => "Example group #{i}");
+  group = Group.create( :name => "Group #{i}", :description => "Example group #{i}");
+
+  group.seasons << Season.create( :start_date => Time.now, :end_date => Time.now + i.year, :starting_kudos => 2, :max_kudos_per_user => 2)
 
   (1..2).each do |x|
     user=User.create(   :name => "User #{x} of group #{i}",

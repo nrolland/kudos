@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20111105095120) do
     t.integer  "value",      :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "kudo_id"
   end
 
   create_table "groups", :force => true do |t|
@@ -25,15 +26,12 @@ ActiveRecord::Schema.define(:version => 20111105095120) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
-    t.integer  "season_id"
   end
 
   create_table "kudos", :force => true do |t|
     t.string   "message"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "comment_id"
   end
 
   create_table "prizes", :force => true do |t|
@@ -42,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20111105095120) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "value"
+    t.integer  "season_id"
   end
 
   create_table "seasons", :force => true do |t|
@@ -51,8 +50,7 @@ ActiveRecord::Schema.define(:version => 20111105095120) do
     t.integer  "max_kudos_per_user"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "kudos_id"
-    t.integer  "prize_id"
+    t.integer  "group_id"
   end
 
   create_table "users", :force => true do |t|
@@ -62,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20111105095120) do
     t.string   "role",            :default => "user"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "group_id"
   end
 
 end

@@ -9,7 +9,7 @@
 
 
 (1..2).each do |i|
-group= Group.create( :name => "Group #{i}", :description => "Example group #{i}");
+  group= Group.create( :name => "Group #{i}", :description => "Example group #{i}");
 
   (1..2).each do |x|
     user=User.create(   :name => "User #{x} of group #{i}",

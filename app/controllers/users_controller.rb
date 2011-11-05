@@ -40,11 +40,10 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    #params_prepared = params[:user]
-    #params_prepared.merge(:role => "admin".to_sym)
-    #@user = User.new(params_prepared)
-    
     @user = User.new(params[:user])
+    
+    #Simulate group assignment
+    @user.group = Group.first
     
     respond_to do |format|
       if @user.save
@@ -55,7 +54,7 @@ class UsersController < ApplicationController
         format.json { render json: '/signin', status: :created, location: @user}
         
       else
-        format.html { render action: "new" }
+        format.html { render 'new' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end

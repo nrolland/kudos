@@ -11,15 +11,14 @@
 (1..2).each do |i|
   group = Group.create( :name => "Group #{i}", :description => "Example group #{i}");
 
-  group.seasons << Season.create( :start_date => Time.now, :end_date => Time.now + i.year, :starting_kudos => 2, :max_kudos_per_user => 2)
+  group.seasons.create( :start_date => Time.now, :end_date => Time.now + i.year, :starting_kudos => 2, :max_kudos_per_user => 2)
 
   (1..2).each do |x|
-    user=User.create(   :name => "User #{x} of group #{i}",
+    group.users.create( :name => "User #{x} of group #{i}",
                         :email => "user#{x}@group#{i}.com",
                         :password => "1234",
                         :password_confirmation => "1234",
-                        :role => :admin )
-    group.users << user
+                        :role => "admin" )
   end
 end
 

@@ -11,6 +11,11 @@ class Season < ActiveRecord::Base
 
   validate :season_cannot_start_before_it_ends
 
+  belongs_to :group
+  has_many :kudos
+  has_many :prizes
+  has_many :timelines, :as => :event
+
   protected
 
   def season_cannot_start_before_it_ends

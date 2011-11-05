@@ -1,0 +1,27 @@
+<%= form_for(@kudo) do |f| %>
+  <% if @kudo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@kudo.errors.count, "error") %> prohibited this Kudo from being saved:</h2>
+
+      <ul>
+      <% @kudo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :to %><br />
+    <%= f.select :to, options_from_collection_for_select(@users, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :message %><br />
+    <%= f.text_field :message %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

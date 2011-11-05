@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111104232946) do
+ActiveRecord::Schema.define(:version => 20111105095120) do
 
   create_table "comments", :force => true do |t|
     t.string   "text"
     t.integer  "value",      :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "kudo_id"
   end
 
   create_table "groups", :force => true do |t|
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20111104232946) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "value"
+    t.integer  "season_id"
   end
 
   create_table "seasons", :force => true do |t|
@@ -48,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20111104232946) do
     t.integer  "max_kudos_per_user"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "group_id"
   end
 
   create_table "users", :force => true do |t|
@@ -57,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20111104232946) do
     t.string   "role",            :default => "user"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "group_id"
   end
 
 end

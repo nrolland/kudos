@@ -38,21 +38,21 @@ render_views
       
     end
     
-    describe "valid sign" do
+#    describe "valid sign" do
+#      
+#      before(:each) do
+#        @attr = { :name => "example User", :email => "user1@group1.com", :password => "1234"}
+#        @user = Factory(:user)
+#        #User.stub!(:find_by_email, @user.email).and_return(@user)
+#      end
       
-      before(:each) do
-        @attr = { :name => "example User", :email => "user1@group1.com", :password => "1234"}
-        @user = Factory(:user)
-        User.stub!(:find_by_email, @user.email).and_return(@user)
-      end
+#      it "should show welcome message" do
+#        post :create, :session => @attr
+#        response.body.should contain("Welcome user");
+#        response.body.should contain("User logged:");
+#      end
       
-      it "should show welcome message" do
-        post :create, :session => @attr
-        response.body.should contain("Welcome user");
-        response.body.should contain("User logged:");
-      end
-      
-    end   
+#    end   
     
   end
 

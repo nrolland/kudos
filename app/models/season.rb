@@ -1,2 +1,3 @@
 class Season < ActiveRecord::Base
+  validates :start_date, :end_date, :starting_kudos, :max_kudos_per_user, :presence => true
 end

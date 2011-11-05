@@ -70,9 +70,9 @@ ActiveRecord::Schema.define(:version => 20111105185926) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "group_id"
+    t.string   "salt"
     t.integer  "given_kudos"
     t.integer  "received_kudos"
-    t.string   "salt"
   end
 
 end

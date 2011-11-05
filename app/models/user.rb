@@ -4,11 +4,11 @@ class User < ActiveRecord::Base
 
   has_many :comments
   has_many :kudos
-  belongs_to :groups
-  
-  
+  belongs_to :group
+
+
   has_secure_password
-  
+
   validates :name, :presence => true
   validates :email, :format => { :with => email_regex},
                     :presence => true,
@@ -16,5 +16,5 @@ class User < ActiveRecord::Base
   validates :password, :presence => true
   validates :role, :presence => true,
                    :inclusion =>  {:in => ROLES}
-  
+
 end

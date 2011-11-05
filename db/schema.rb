@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20111105185926) do
-=======
-ActiveRecord::Schema.define(:version => 20111105174000) do
->>>>>>> 6107d2fe63b41c6e5b156789ce010773591d834a
 
   create_table "comments", :force => true do |t|
     t.string   "text"
@@ -74,12 +70,9 @@ ActiveRecord::Schema.define(:version => 20111105174000) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "group_id"
-<<<<<<< HEAD
-    t.string   "salt"
-=======
     t.integer  "given_kudos"
     t.integer  "received_kudos"
->>>>>>> 6107d2fe63b41c6e5b156789ce010773591d834a
+    t.string   "salt"
   end
 
 end

@@ -1,0 +1,31 @@
+<h1>Listing seasons</h1>
+
+<table>
+  <tr>
+    <th>Start date</th>
+    <th>End date</th>
+    <th>Starting kudos</th>
+    <th>Max kudos per user</th>
+    <th>Group</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @seasons.each do |season| %>
+  <tr>
+    <td><%= season.start_date %></td>
+    <td><%= season.end_date %></td>
+    <td><%= season.starting_kudos %></td>
+    <td><%= season.max_kudos_per_user %></td>
+    <td><%= season.group.nil? ? "" : season.group.name %></td>
+    <td><%= link_to 'Show', season %></td>
+    <td><%= link_to 'Edit', edit_season_path(season) %></td>
+    <td><%= link_to 'Destroy', season, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Season', new_season_path %>

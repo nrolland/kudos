@@ -1,6 +1,7 @@
 Kudos::Application.routes.draw do
   resources :sessions, :only => [:new, :create, :destroy]
   resources :users, :only => [:new, :create]
+  resources :seasons
 
   get "sessions/new" 
   root :to => "sessions#new"

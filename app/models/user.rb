@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 
   has_many :comments
   has_many :kudos
+  belongs_to :groups
+  
   
   has_secure_password
   

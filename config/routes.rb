@@ -1,9 +1,10 @@
 Kudos::Application.routes.draw do
+  resources :kudos
+
   resources :sessions, :only => [:new, :create, :destroy]
   resources :users, :only => [:new, :create]
 
   match '/timeline', :to => 'timeline#index'
-
   get "sessions/new"
 
   match '/signin',  :to => 'sessions#new'

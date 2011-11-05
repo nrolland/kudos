@@ -3,9 +3,10 @@ class User < ActiveRecord::Base
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   has_many :comments
-  has_many :kudos
-  belongs_to :group
+  has_many :given_kudos, :class_name => 'Kudo'
+  has_many :received_kudos, :class_name => 'Kudo'
 
+  belongs_to :group
 
   has_secure_password
 
@@ -40,5 +41,7 @@ class User < ActiveRecord::Base
       self.salt = "hola"
     end
     
+
+  validates :group_id, :presence => true
 
 end

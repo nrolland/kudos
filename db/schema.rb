@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20111105185926) do
+=======
+ActiveRecord::Schema.define(:version => 20111105174000) do
+>>>>>>> 6107d2fe63b41c6e5b156789ce010773591d834a
 
   create_table "comments", :force => true do |t|
     t.string   "text"
@@ -32,6 +36,8 @@ ActiveRecord::Schema.define(:version => 20111105185926) do
     t.string   "message"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "from"
+    t.integer  "to"
   end
 
   create_table "prizes", :force => true do |t|
@@ -53,6 +59,13 @@ ActiveRecord::Schema.define(:version => 20111105185926) do
     t.integer  "group_id"
   end
 
+  create_table "timelines", :force => true do |t|
+    t.integer  "event_id"
+    t.string   "event_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
@@ -61,7 +74,12 @@ ActiveRecord::Schema.define(:version => 20111105185926) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "group_id"
+<<<<<<< HEAD
     t.string   "salt"
+=======
+    t.integer  "given_kudos"
+    t.integer  "received_kudos"
+>>>>>>> 6107d2fe63b41c6e5b156789ce010773591d834a
   end
 
 end

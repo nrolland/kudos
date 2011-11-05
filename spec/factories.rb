@@ -38,3 +38,8 @@ Factory.define :comment do |c|
   c.association :user, :factory => :user
   c.association :kudo, :factory => :kudo
 end
+
+Factory.define :prize do |p|
+  p.name 'A great present'
+  p.description 'A great description for a great present'
+end

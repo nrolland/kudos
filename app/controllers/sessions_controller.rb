@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
        #redirect_to timeline_url, :notice => "Logged in"
        render 'new'  
     else
-      flash.now[:error]="Invaild user"
+      flash.now[:error]="Invalid user"
       render 'new'  
     end
 

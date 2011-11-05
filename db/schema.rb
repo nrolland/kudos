@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111105153103) do
+ActiveRecord::Schema.define(:version => 20111105185926) do
 
   create_table "comments", :force => true do |t|
     t.string   "text"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20111105153103) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "group_id"
+    t.string   "salt"
   end
 
 end

@@ -3,6 +3,8 @@ Kudos::Application.routes.draw do
 
   get "sessions/new"
  
+  root :to => "sessions#new"
+ 
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
   

@@ -2,7 +2,7 @@ Kudos::Application.routes.draw do
   resources :sessions, :only => [:new, :create, :destroy]
   resources :users, :only => [:new, :create]
 
-  get "timeline/index"
+  match '/timeline', :to => 'timeline#index'
 
   get "sessions/new"
 

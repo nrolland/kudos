@@ -1,4 +1,6 @@
 Kudos::Application.routes.draw do
+  get "timeline/index"
+
  resources :sessions, :only => [:new, :create, :destroy]
 
   get "sessions/new"

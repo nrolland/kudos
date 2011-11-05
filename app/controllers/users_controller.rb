@@ -47,14 +47,12 @@ class UsersController < ApplicationController
     #Simulate group assignment
     @user.group = Group.first
     
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render json: @user, status: :created, location: @user }
-      else
-        format.html { render 'new' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.save
+      sign_in(@user)
+      flash.now[:success] = "User #{user.name} created"
+      redirect_to timeline_path      
+    else
+      render 'new';  
     end
   end
 

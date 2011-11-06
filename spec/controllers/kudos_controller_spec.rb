@@ -16,4 +16,11 @@ describe KudosController do
     # end
   # end
 
+  describe "Segurity in kudos" do
+    it "Only authenticated user of group can create kudos" do
+      get 'new'
+      response.body.should redirect_to ("/signin");
+     end
+  end
+
 end

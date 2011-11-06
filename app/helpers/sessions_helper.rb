@@ -1,7 +1,8 @@
 module SessionsHelper
   
   def signed_in?
-    !current_user.nil?
+    signed = !current_user.nil?
+    return signed
   end
   
   def current_user=(user)
@@ -39,7 +40,16 @@ module SessionsHelper
   def redirect_back_or(default)
     redirect_to(session[:return_to] || default)
     clear_return_to
-  end  
+  end
+  
+  def admin?
+    role = current_user.role
+    role == "admin"
+  end
+  
+  def user_in_group?(group)
+    current_user.group==group
+  end
   
   private
 

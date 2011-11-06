@@ -10,6 +10,8 @@
 <% if signed_in? %>
   <p>Welcome: <%= current_user.name%></p>	
   <ul>
+    <li><%= link_to "Home", "/" %></li>
+    <li><%= link_to "Seasons", seasons_path %></li>
     <li><%= link_to "Sign out", signout_path %></li>
   </ul>
 <% end %>

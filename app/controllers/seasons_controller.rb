@@ -41,7 +41,7 @@ class SeasonsController < ApplicationController
   # POST /seasons.json
   def create
     @season = Season.new(params[:season])
-
+    @season.group = current_user.group
     respond_to do |format|
       if @season.save
         format.html { redirect_to @season, notice: 'Season was successfully created.' }

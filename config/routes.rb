@@ -5,8 +5,8 @@ Kudos::Application.routes.draw do
   resources :users, :only => [:new, :create]
   resources :seasons
 
-  match '/timeline', :to => 'timeline#index'
-  get "sessions/new"
+  get "sessions/new" 
+  root :to => "sessions#new"
 
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'

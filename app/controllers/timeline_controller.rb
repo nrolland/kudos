@@ -2,6 +2,11 @@ class TimelineController < ApplicationController
   before_filter :authenticate
 
   def index
-  end
+    @timeline = Timeline.find(:all,
+                              :order => "updated_at DESC",
+                              :limit => 20,
+                              :include => :event).collect {|t| t.event}
 
+    # TODO: RSS/Atom version of the timeline
+  end
 end

@@ -5,13 +5,8 @@ Kudos::Application.routes.draw do
   resources :users, :only => [:new, :create]
   resources :seasons
 
-<<<<<<< HEAD
-  get "sessions/new" 
-  root :to => "sessions#new"
-=======
   match '/timeline', :to => 'timeline#index'
   get "sessions/new"
->>>>>>> give_kudos
 
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'

@@ -3,6 +3,7 @@ Factory.define :season do |s|
   s.end_date Time.now + 1.year
   s.starting_kudos 2
   s.max_kudos_per_user 10
+  s.active false
 
   s.association :group, :factory => :group
 end

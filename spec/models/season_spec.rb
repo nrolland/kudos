@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Season do
   before :each do
     @group = Factory(:group)
-    @season = Factory(:season)
+    @season = Factory(:season, :group => @group)
   end
 
   describe 'creation' do
@@ -11,22 +11,16 @@ describe Season do
       @season.should be_valid
     end
 
-    it "should have a start date" do
+    it "should not be valid if any of the required fields is not filled" do
       @season.start_date = nil
       @season.should_not be_valid
-    end
 
-    it "should have an end date" do
       @season.end_date = nil
       @season.should_not be_valid
-    end
 
-    it "should define how many kudos an user may grant" do
       @season.starting_kudos = nil
       @season.should_not be_valid
-    end
 
-    it "should define how many kudos an user can receive" do
       @season.max_kudos_per_user = nil
       @season.should_not be_valid
     end
@@ -44,6 +38,19 @@ describe Season do
     it "should not end before it starts" do
       @season.end_date = @season.start_date - 1.year
       @season.should_not be_valid
+    end
+
+    it "should not save a season if there is another active one" do
+      Factory(:season, :active => true)
+
+      season = Factory(:season, :active => true)
+      season.should_not be_valid
+    end
+
+    it "should save a season if there isn't another active one" do
+      season =  Factory(:season, :group => @group, :active => true)
+
+      season.errors.empty?.should be_true
     end
   end
 end

@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-
 describe TimelineController do
   render_views
   # describe "GET 'index'" do

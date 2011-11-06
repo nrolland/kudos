@@ -1,4 +1,6 @@
 class SeasonsController < ApplicationController
+  before_filter :authenticate
+  
   # GET /seasons
   # GET /seasons.json
   def index

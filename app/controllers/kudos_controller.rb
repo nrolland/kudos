@@ -1,4 +1,5 @@
 class KudosController < ApplicationController
+  before_filter :authenticate
 
   def new
     @kudo = Kudo.new

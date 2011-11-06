@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111105185926) do
+ActiveRecord::Schema.define(:version => 20111105230036) do
 
   create_table "comments", :force => true do |t|
     t.string   "text"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20111105185926) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "group_id"
+    t.boolean  "active",             :default => false
   end
 
   create_table "timelines", :force => true do |t|
@@ -70,9 +71,9 @@ ActiveRecord::Schema.define(:version => 20111105185926) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "group_id"
-    t.string   "salt"
     t.integer  "given_kudos"
     t.integer  "received_kudos"
+    t.string   "salt"
   end
 
 end

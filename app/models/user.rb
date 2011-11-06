@@ -19,7 +19,9 @@ class User < ActiveRecord::Base
   validates :password, :presence => true
   validates :role, :presence => true,
                    :inclusion =>  {:in => ROLES}
-  
+
+  validates :group_id, :presence => true
+
   before_save :update_salt
 
   class << self
@@ -27,21 +29,18 @@ class User < ActiveRecord::Base
       user = find_by_email(email)
       (user && user.has_password?(submited_password)) ? user : nil
     end
-    
+
     def authenticate_with_salt(id,cookie_salt)
       user = find_by_id(id)
       (user && user.salt ==cookie_salt) ? user : nil
     end
-    
-  end
-  
-  private
-  
-    def update_salt
-      self.salt = "hola"
-    end
-    
 
-  validates :group_id, :presence => true
+  end
+
+  private
+
+  def update_salt
+    self.salt = "hola"
+  end
 
 end

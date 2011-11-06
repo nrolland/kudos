@@ -1,6 +1,4 @@
 <h1>Timeline</h1>
 <ul>
-  <% @timeline.each do |element| %>
-    <li><%= render :partial => element.class.downcase, :locals => {:element => element} %></li>
-  <% end %>
+  <%= render @timeline %>
 </ul>

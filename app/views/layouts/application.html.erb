@@ -8,14 +8,14 @@
 </head>
 <body>
 <% if signed_in? %>
-  <% if admin?%>	
+  <% if admin?%>
   Admin menu:
   <ul>
     <li><%= link_to "Add new Season", new_season_path %></li>
   </ul>
   <%end%>
 
-  <p>Welcome: <%= current_user.name%></p>	
+  <p>Welcome: <%= current_user.name %> (Given: <%= current_user.given_kudos.count %> | Received: <%= current_user.received_kudos.count %>)</p>
   <ul>
     <li><%= link_to "Home", "/" %></li>
     <li><%= link_to "Seasons", seasons_path %></li>

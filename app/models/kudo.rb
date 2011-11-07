@@ -1,9 +1,9 @@
 class Kudo < ActiveRecord::Base
   has_many :comments
-  belongs_to :from, :class_name => 'User'
-  belongs_to :to,   :class_name => 'User'
-  belongs_to :season
   has_many :timelines, :as => :event
+  belongs_to :from, :class_name => 'User', :foreign_key => 'from'
+  belongs_to :to,   :class_name => 'User', :foreign_key => 'to'
+  belongs_to :season
 
   validates :message, :presence => true
   validates :from,    :presence => true

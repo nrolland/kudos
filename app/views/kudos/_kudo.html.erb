@@ -1,1 +1,4 @@
-<li class="timeline-kudo"><%= kudo.to_s %></li>
+<li class="timeline-kudo">
+  <strong><%= kudo.from.name %></strong> gave a Kudos to <strong><%= kudo.to.name %></strong>
+  <em>(<%= time_ago_in_words kudo.created_at %>)</em>
+</li>

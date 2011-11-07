@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-   before_filter :authenticate, :except => [:new, :create]
-  
+  before_filter :authenticate, :except => [:new, :create]
+
   # GET /users
   # GET /users.json
   def index
@@ -43,16 +43,15 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
-    
+
     #Simulate group assignment
     @user.group = Group.first
-    
+
     if @user.save
       sign_in(@user)
-      #flash.now[:success] = "User #{@user.name} created"
-      redirect_to timeline_path      
+      redirect_to timeline_path
     else
-      render 'new';  
+      render 'new';
     end
   end
 

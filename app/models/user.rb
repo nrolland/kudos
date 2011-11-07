@@ -3,9 +3,6 @@ class User < ActiveRecord::Base
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   has_many :comments
-  has_many :given_kudos, :class_name => 'Kudo'
-  has_many :received_kudos, :class_name => 'Kudo'
-
   belongs_to :group
 
   has_secure_password
@@ -25,16 +22,25 @@ class User < ActiveRecord::Base
   before_save :update_salt
 
   class << self
-    def authenticate(email,submited_password)
+
+    def authenticate(email, submited_password)
       user = find_by_email(email)
       (user && user.has_password?(submited_password)) ? user : nil
     end
 
-    def authenticate_with_salt(id,cookie_salt)
+    def authenticate_with_salt(id, cookie_salt)
       user = find_by_id(id)
-      (user && user.salt ==cookie_salt) ? user : nil
+      (user && user.salt == cookie_salt) ? user : nil
     end
 
+  end
+
+  def given_kudos
+    Kudo.where(:from => self.id)
+  end
+
+  def received_kudos
+    Kudo.where(:to => self.id)
   end
 
   private

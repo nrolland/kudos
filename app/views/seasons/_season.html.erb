@@ -1,1 +1,4 @@
-<li class="timeline-season"><%= season.to_s %></li>
+<li class="timeline-season">
+  New season created! From: <%= season.start_date %> To: <%= season.end_date %>
+  <em>(<%= time_ago_in_words season.created_at %>)</em>
+</li>

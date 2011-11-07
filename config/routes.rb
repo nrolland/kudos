@@ -5,7 +5,7 @@ Kudos::Application.routes.draw do
   resources :users, :only => [:new, :create]
   resources :seasons
 
-  get "sessions/new" 
+  get "sessions/new"
   root :to => "sessions#new"
 
   match '/signin',  :to => 'sessions#new'

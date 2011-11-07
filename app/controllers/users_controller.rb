@@ -49,7 +49,7 @@ class UsersController < ApplicationController
     
     if @user.save
       sign_in(@user)
-      flash.now[:success] = "User #{user.name} created"
+      #flash.now[:success] = "User #{@user.name} created"
       redirect_to timeline_path      
     else
       render 'new';  
